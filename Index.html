@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Chinky Saha #muskan</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle, #ffe6e6, #ffc2d1);
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .center-box, .next-box, .celebrate-box, .card-page {
+      display: none;
+      margin-top: 50px;
+    }
+
+    .box {
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #fff0f5;
+      border-radius: 15px;
+      width: 300px;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+    }
+
+    .gif {
+      margin: 20px auto;
+      width: 300px;
+      display: none;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 4s infinite ease-in;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(45deg); }
+      100% { transform: translateY(-100vh) rotate(45deg); }
+    }
+
+    .cake-page {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card-page {
+      display: none;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+    }
+
+    .card {
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(255, 105, 180, 0.3);
+      max-width: 500px;
+      width: 90%;
+      background-color: #ffedf0;
+    }
+
+    /* Slideshow animation */
+    .image-slideshow {
+      margin: 30px auto;
+      width: 300px;
+      height: 300px;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+
+    .image-slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .image-slideshow img.active {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+  <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;z-index:2;width:100vw;height:100vh;pointer-events:none;"></canvas>
+
+  <div class="box" onclick="showFirstMessage()">I have something for you 💌</div>
+
+  <div class="center-box">
+    <h2 style="color: #d6336c;">It's a special day for me 🥰</h2>
+    
+    <!-- Image Slideshow -->
+    <div class="image-slideshow">
+      <img src="https://i.pinimg.com/originals/1e/f6/2b/1ef62b2aa90cc376ec03e35a45d85b1c.gif" class="active" alt="bday1">
+      <img src="https://i.pinimg.com/originals/80/0d/2c/800d2c04fd7ed2ae9c36f9a7ff388f7c.gif" alt="bday2">
+      <img src="https://media.tenor.com/eDprd7NiwGoAAAAM/birthday-cake.gif" alt="bday3">
+    </div>
+    
+    <div class="box" onclick="showSecondStep()">Enter my day</div>
+    <img class="gif" src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="hugging teddy gif" onerror="this.style.display='none'">
+  </div>
+
+  <div class="next-box">
+    <div class="hearts" id="hearts"></div>
+    <h1 style="font-size: 2.5em; color: #ff4081; animation: glow 2s infinite alternate;">Happiest Birthday Chinky Saha #muskan 💖</h1>
+    <div class="box" onclick="goToCake()">Let's celebrate it 🎉</div>
+  </div>
+
+  <div class="cake-page">
+    <h2 style="font-size: 2em; color: #c2185b">🎂 Let's cut it</h2>
+    <div style="font-size: 100px;">🎂</div>
+    <div class="box" onclick="goToCard()">Next Page ➡️</div>
+  </div>
+
+  <div class="card-page">
+    <div class="card-container">
+      <div class="card">
+        <p style="font-size: 1.1em; line-height: 1.5; color: #5d4037;">
+          Happy Birthday my cutie bhanji ❣️...<br>
+          And I wish you will always succeed in your life<br>
+          and get whatever you want. 💖🎉🎂<br>
+          Stay blessed and keep smiling always 🌟
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showFirstMessage() {
+      document.querySelector('.center-box').style.display = 'block';
+    }
+
+    function showSecondStep() {
+      document.querySelector('.gif').style.display = 'block';
+      document.querySelector('.next-box').style.display = 'block';
+      createHearts();
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 100; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+        document.getElementById('hearts').appendChild(heart);
+      }
+    }
+
+    function goToCake() {
+      document.querySelector('.next-box').style.display = 'none';
+      document.querySelector('.cake-page').style.display = 'block';
+      startConfetti();
+    }
+
+    function goToCard() {
+      document.querySelector('.cake-page').style.display = 'none';
+      document.querySelector('.card-page').style.display = 'block';
+    }
+
+    function startConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let pieces = [];
+      const colors = ['#fceabb', '#f8b195', '#f67280', '#c06c84', '#6c5b7b'];
+      for (let i = 0; i < 150; i++) {
+        pieces.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height - canvas.height,
+          size: Math.random() * 8 + 2,
+          speed: Math.random() * 3 + 1,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          tilt: Math.random() * 10 - 5,
+          tiltAngle: 0
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pieces.forEach(p => {
+          ctx.beginPath();
+          ctx.fillStyle = p.color;
+          ctx.moveTo(p.x + p.tilt, p.y);
+          ctx.lineTo(p.x + p.tilt + p.size / 2, p.y + p.size);
+          ctx.lineTo(p.x + p.tilt - p.size / 2, p.y + p.size);
+          ctx.closePath();
+          ctx.fill();
+        });
+      }
+
+      function update() {
+        pieces.forEach(p => {
+          p.y += p.speed;
+          p.tiltAngle += 0.1;
+          p.tilt = Math.sin(p.tiltAngle) * 10;
+          if (p.y > canvas.height) {
+            p.y = -p.size;
+            p.x = Math.random() * canvas.width;
+          }
+        });
+      }
+
+      function loop() {
+        draw();
+        update();
+        requestAnimationFrame(loop);
+      }
+      loop();
+    }
+
+    // Image slideshow animation
+    let currentImage = 0;
+    const images = document.querySelectorAll('.image-slideshow img');
+
+    setInterval(() => {
+      images[currentImage].classList.remove('active');
+      currentImage = (currentImage + 1) % images.length;
+      images[currentImage].classList.add('active');
+    }, 3000); // change image every 3 seconds
+  </script>
+</body>
+</html>
