@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Chinky Saha #muskan</title>
   <style>
     body {
@@ -16,7 +16,6 @@
       display: none;
       margin-top: 50px;
     }
-
     .box {
       margin: 100px auto;
       padding: 30px;
@@ -27,11 +26,9 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-
     .box:hover {
       transform: scale(1.05);
     }
-
     .gif {
       margin: 20px auto;
       width: 300px;
@@ -39,7 +36,6 @@
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
     }
-
     .hearts {
       position: fixed;
       top: 0;
@@ -49,7 +45,6 @@
       pointer-events: none;
       z-index: 1;
     }
-
     .heart {
       position: absolute;
       width: 20px;
@@ -58,7 +53,6 @@
       transform: rotate(45deg);
       animation: float 4s infinite ease-in;
     }
-
     .heart::before,
     .heart::after {
       content: "";
@@ -68,41 +62,34 @@
       background: red;
       border-radius: 50%;
     }
-
     .heart::before {
       top: -10px;
       left: 0;
     }
-
     .heart::after {
       left: -10px;
       top: 0;
     }
-
     @keyframes float {
       0% { transform: translateY(100vh) rotate(45deg); }
       100% { transform: translateY(-100vh) rotate(45deg); }
     }
-
     .cake-page {
       display: none;
       text-align: center;
       padding: 20px;
     }
-
     .card-page {
       display: none;
       text-align: center;
       padding: 20px;
     }
-
     .card-container {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 300px;
     }
-
     .card {
       padding: 20px;
       background: #fff;
@@ -124,15 +111,14 @@
       box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
     }
 
-   .image-slideshow img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures it fills the box without stretching */
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  border-radius: 15px; /* Smooth corners */
-   }
+    .image-slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Fills entire box while maintaining aspect ratio */
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      border-radius: 15px;
     }
 
     .image-slideshow img.active {
@@ -151,14 +137,14 @@
 
   <div class="center-box">
     <h2 style="color: #d6336c;">It's a special day for me 🥰</h2>
-    
+
     <!-- Image Slideshow -->
     <div class="image-slideshow">
       <img src="n1.jpg" class="active" alt="bday1">
       <img src="n2.jpg" alt="bday2">
       <img src="n3.jpg" alt="bday3">
     </div>
-    
+
     <div class="box" onclick="showSecondStep()">Enter my day</div>
     <img class="gif" src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="hugging teddy gif" onerror="this.style.display='none'">
   </div>
@@ -282,7 +268,7 @@
       images[currentImage].classList.remove('active');
       currentImage = (currentImage + 1) % images.length;
       images[currentImage].classList.add('active');
-    }, 3000); // change image every 3 seconds
+    }, 3000);
   </script>
 </body>
 </html>
