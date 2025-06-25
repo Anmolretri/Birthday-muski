@@ -12,10 +12,12 @@
       text-align: center;
       overflow-x: hidden;
     }
+
     .center-box, .next-box, .celebrate-box, .card-page {
       display: none;
       margin-top: 50px;
     }
+
     .box {
       margin: 100px auto;
       padding: 30px;
@@ -26,9 +28,11 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
+
     .box:hover {
       transform: scale(1.05);
     }
+
     .gif {
       margin: 20px auto;
       width: 300px;
@@ -36,6 +40,7 @@
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
     }
+
     .hearts {
       position: fixed;
       top: 0;
@@ -45,6 +50,7 @@
       pointer-events: none;
       z-index: 1;
     }
+
     .heart {
       position: absolute;
       width: 20px;
@@ -53,6 +59,7 @@
       transform: rotate(45deg);
       animation: float 4s infinite ease-in;
     }
+
     .heart::before,
     .heart::after {
       content: "";
@@ -62,34 +69,41 @@
       background: red;
       border-radius: 50%;
     }
+
     .heart::before {
       top: -10px;
       left: 0;
     }
+
     .heart::after {
       left: -10px;
       top: 0;
     }
+
     @keyframes float {
       0% { transform: translateY(100vh) rotate(45deg); }
       100% { transform: translateY(-100vh) rotate(45deg); }
     }
+
     .cake-page {
       display: none;
       text-align: center;
       padding: 20px;
     }
+
     .card-page {
       display: none;
       text-align: center;
       padding: 20px;
     }
+
     .card-container {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 300px;
     }
+
     .card {
       padding: 20px;
       background: #fff;
@@ -115,14 +129,30 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Fills entire box while maintaining aspect ratio */
+      object-fit: cover;
       opacity: 0;
       transition: opacity 1s ease-in-out;
       border-radius: 15px;
+      transform: scale(1);
     }
 
     .image-slideshow img.active {
       opacity: 1;
+      animation: zoomFade 3s ease-in-out forwards;
+    }
+
+    @keyframes zoomFade {
+      0% {
+        transform: scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.08);
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -131,6 +161,7 @@
     <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
     Your browser does not support the audio element.
   </audio>
+
   <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;z-index:2;width:100vw;height:100vh;pointer-events:none;"></canvas>
 
   <div class="box" onclick="showFirstMessage()">I have something for you 💌</div>
@@ -140,9 +171,9 @@
 
     <!-- Image Slideshow -->
     <div class="image-slideshow">
-      <img src="n1.jpg" class="active" alt="bday1">
-      <img src="n2.jpg" alt="bday2">
-      <img src="n3.jpg" alt="bday3">
+      <img src="https://i.pinimg.com/originals/1e/f6/2b/1ef62b2aa90cc376ec03e35a45d85b1c.gif" class="active" alt="bday1">
+      <img src="https://i.pinimg.com/originals/80/0d/2c/800d2c04fd7ed2ae9c36f9a7ff388f7c.gif" alt="bday2">
+      <img src="https://media.tenor.com/eDprd7NiwGoAAAAM/birthday-cake.gif" alt="bday3">
     </div>
 
     <div class="box" onclick="showSecondStep()">Enter my day</div>
