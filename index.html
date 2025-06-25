@@ -114,7 +114,7 @@
       background-color: #ffedf0;
     }
 
-    /* Slideshow animation */
+    /* Image slideshow */
     .image-slideshow {
       margin: 30px auto;
       width: 300px;
@@ -126,35 +126,16 @@
     }
 
     .image-slideshow img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* ⬅ change from 'cover' to 'contain' */
-  background-color: #fff0f5; /* ⬅ optional: fills the gap with a soft pink */
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  border-radius: 15px;
-  transform: scale(1);
-    }
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
 
     .image-slideshow img.active {
       opacity: 1;
-      animation: zoomFade 3s ease-in-out forwards;
-    }
-
-    @keyframes zoomFade {
-      0% {
-        transform: scale(1);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1.08);
-        opacity: 1;
-      }
     }
   </style>
 </head>
@@ -171,7 +152,7 @@
   <div class="center-box">
     <h2 style="color: #d6336c;">It's a special day for me 🥰</h2>
 
-    <!-- Image Slideshow -->
+    <!-- Slideshow -->
     <div class="image-slideshow">
       <img src="n4.jpg" class="active" alt="bday1">
       <img src="n5.jpg" alt="bday2">
@@ -179,12 +160,12 @@
     </div>
 
     <div class="box" onclick="showSecondStep()">Enter my day</div>
-    <img class="gif" src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="hugging teddy gif" onerror="this.style.display='none'">
+    <img class="gif" src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="hugging teddy gif">
   </div>
 
   <div class="next-box">
     <div class="hearts" id="hearts"></div>
-    <h1 style="font-size: 2.5em; color: #ff4081; animation: glow 2s infinite alternate;">Happiest Birthday Chinky Saha #muskan 💖</h1>
+    <h1 style="font-size: 2.5em; color: #ff4081;">Happiest Birthday Chinky Saha #muskan 💖</h1>
     <div class="box" onclick="goToCake()">Let's celebrate it 🎉</div>
   </div>
 
@@ -199,7 +180,7 @@
       <div class="card">
         <p style="font-size: 1.1em; line-height: 1.5; color: #5d4037;">
           Happy Birthday my cutie bhanji ❣️...<br>
-          And I wish you will always succeed in your life<br>
+          I wish you will always succeed in your life,<br>
           and get whatever you want. 💖🎉🎂<br>
           Stay blessed and keep smiling always 🌟
         </p>
@@ -290,12 +271,13 @@
         update();
         requestAnimationFrame(loop);
       }
+
       loop();
     }
 
-    // Image slideshow animation
-    let currentImage = 0;
+    // Slideshow
     const images = document.querySelectorAll('.image-slideshow img');
+    let currentImage = 0;
 
     setInterval(() => {
       images[currentImage].classList.remove('active');
